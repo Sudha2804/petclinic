@@ -12,11 +12,12 @@ pipeline {
     stages {
         stage('pipeLine') {
             steps {
+             script {
             pipeLine()
             }
         }
-        }
-        post {
+     }
+    post {
         always {
             cleanup()
         }
