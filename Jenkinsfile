@@ -17,10 +17,5 @@ pipeline {
             }
         }
      }
-    post {
-        always {
-            cleanup()
-        }
-    }
   }
 }
