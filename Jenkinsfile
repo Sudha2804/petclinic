@@ -1,4 +1,4 @@
-@Library('my-shared-library@main') _  // Correct syntax
+@Library('my-shared-library@main') _
 
 pipeline {
     agent { label 'jenkins-slave2' }
@@ -36,7 +36,8 @@ pipeline {
 
         stage('Upload Artifact') {
             steps {
-                uploadArtifact('target/bus-booking-app-1.0-SNAPSHOT.jar')
+                echo 'Uploading artifact...'
+                archiveArtifacts artifacts: 'target/petclinic-0.0.1-SNAPSHOT.jar', allowEmptyArchive: true
             }
         }
 
