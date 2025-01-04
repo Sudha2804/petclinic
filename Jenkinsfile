@@ -10,10 +10,10 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        stage('pipeline') {
             steps {
                 script {
-                pipeline.groovy()
+                pipeline()
             }
         }
         }
