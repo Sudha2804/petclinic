@@ -12,10 +12,11 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
+                script {
                 pipeline.groovy()
             }
         }
-
+        }
       
         }
     
