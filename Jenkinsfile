@@ -17,10 +17,11 @@ pipeline {
                 }
             }
          }	
-     }
+     
     post {
         always {
             cleanup()
         }
     }
+}
 }
