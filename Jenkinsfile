@@ -13,56 +13,56 @@ pipeline {
         stage('checkout') {
             steps {
                 script {
-                 buildtest.checkoutCode()
+                 pipeLine.checkoutCode()
                 }
             }
         }
         stage('setup java ') {
             steps {
                 script {
-                 buildtest.setupJava17()
+                   pipeLine.setupJava17()
                 }
             }
         }
         stage('setup mvn ') {
             steps {
                 script {
-                 buildtest.setupMaven()
+                  pipeLine.setupMaven()
                 }
             }
         }  
         stage('setup build ') {
             steps {
                 script {
-                 buildtest.buildProject()
+                   pipeLine.buildProject()
                 }
             }
         }        
         stage('upload artifact ') {
             steps {
                 script {
-                 buildtest.uploadArtifact('target/*.jar')
+                  pipeLine.uploadArtifact('target/*.jar')
                 } 
             }
         } 
         stage('run application ') {
             steps {
                 script {
-                 buildtest.runSpringBootApp()
+                  pipeLine.runSpringBootApp()
                 }
             }
         } 
         stage('validate application ') {
             steps {
                 script {
-                 buildtest.validateAppRunning()
+                   pipeLine.validateAppRunning()
                 }
             }
         }
         stage('stop spring ') {
             steps {
                 script {
-                 buildtest.stopSpringBootApp()
+                   pipeLine.stopSpringBootApp()
                 }
             }
         }
