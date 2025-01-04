@@ -10,68 +10,15 @@ pipeline {
     }
 
     stages {
-        stage('checkout') {
+        stage('pipeLine') {
             steps {
-                script {
-                 pipeLine.checkoutCode()
+            pipeLine()
                 }
-            }
+            }	
         }
-        stage('setup java ') {
-            steps {
-                script {
-                   pipeLine.setupJava17()
-                }
-            }
-        }
-        stage('setup mvn ') {
-            steps {
-                script {
-                  pipeLine.setupMaven()
-                }
-            }
-        }  
-        stage('setup build ') {
-            steps {
-                script {
-                   pipeLine.buildProject()
-                }
-            }
-        }        
-        stage('upload artifact ') {
-            steps {
-                script {
-                  pipeLine.uploadArtifact('target/*.jar')
-                } 
-            }
-        } 
-        stage('run application ') {
-            steps {
-                script {
-                  pipeLine.runSpringBootApp()
-                }
-            }
-        } 
-        stage('validate application ') {
-            steps {
-                script {
-                   pipeLine.validateAppRunning()
-                }
-            }
-        }
-        stage('stop spring ') {
-            steps {
-                script {
-                   pipeLine.stopSpringBootApp()
-                }
-            }
+    post {
+        always {
+            cleanup()
         }
     }
-post {
-        always {
-            script {
-                 pipeLine.cleanupProcesses()
-        }
-      }
-   }
 }
